@@ -16,4 +16,17 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <Content />
     {post.data.demo && <iframe class="demo" src={`${base}/demos/${post.data.demo}`} title="Interactive demo" loading="lazy"></iframe>}
   </article>
+  <script>
+    const f = document.querySelector('iframe.demo');
+    if (f) {
+      const fit = () => {
+        const d = f.contentDocument;
+        if (d) f.style.height = d.documentElement.scrollHeight + 'px';
+      };
+      f.addEventListener('load', () => {
+        fit();
+        new ResizeObserver(fit).observe(f.contentDocument.documentElement);
+      });
+    }
+  </script>
 </Base>
