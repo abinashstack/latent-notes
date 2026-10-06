@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const posts = (await getCollection('blog')).sort((a, b) => +b.data.date - +a.data.date);
+---
+<Base title="Latent Notes">
+  <h1>Notes &amp; experiments</h1>
+  <p class="meta">Writing about code, AI and things I am learning.</p>
+  <ul class="post-list">
+    {posts.map((p) => (
+      <li>
+        <a class="card" href={`${base}/blog/${p.id}/`}>
+          <span class="meta">{p.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}</span>
+          <h2>{p.data.title}</h2>
+          <p>{p.data.description}</p>
+        </a>
+      </li>
+    ))}
+  </ul>
+</Base>
