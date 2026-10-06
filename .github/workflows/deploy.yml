@@ -20,6 +20,9 @@ jobs:
           node-version: 22
       - run: npm install
       - run: npm run build
+        env:
+          BASE_PATH: /latent-notes
+          SITE_URL: https://abinashstack.github.io
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

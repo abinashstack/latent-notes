@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
-// Project repo (user.github.io/latent-notes): base must match the repo name.
-// User site (user.github.io) or custom domain: remove base.
+// Defaults serve from the site root (Cloudflare Pages, custom domain).
+// The GitHub Pages workflow sets BASE_PATH=/latent-notes and SITE_URL.
 export default defineConfig({
-  site: 'https://abinashstack.github.io',
-  base: '/latent-notes',
+  site: process.env.SITE_URL || 'https://latent-notes.pages.dev',
+  base: process.env.BASE_PATH || '/',
 });
