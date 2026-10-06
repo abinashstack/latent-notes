@@ -63,6 +63,14 @@ button.btn { font: inherit; font-size: .82rem; color: var(--fg); background: var
 .stat span { font-size: .8rem; color: var(--muted); }
 </style>
 
+<style>
+/* Blend into the blog: same palette, no page chrome, no duplicate title. */
+:root{--bg:#faf9f5;--fg:#141413;--muted:#6b6a63;--line:#e6e3d8;--surface:#ffffff}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#262624;--fg:#f0eee6;--muted:#a3a197;--line:#3a3935;--surface:#30302e}}
+body{background:transparent!important;padding-block:0 24px!important;padding-inline:0!important}
+main{max-width:none!important}
+main>h1,main>.lede{display:none}
+</style>
 <main>
 <h1>What a vector looks like</h1>
 <p class="lede">Every fact minimem stores becomes 384 numbers. These are real vectors from the <code>all-minilm</code> model for 21 example facts and one query. The 3D view is a flattened shadow of the real 384-dimensional space.</p>
