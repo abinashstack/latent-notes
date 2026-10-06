@@ -14,7 +14,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     <p class="meta">{post.data.date.toLocaleDateString('en-GB', { dateStyle: 'long' })}</p>
     <h1>{post.data.title}</h1>
     <Content />
-    {post.data.demo && <iframe class="demo" scrolling="no" src={`${base}/demos/${post.data.demo}`} title="Interactive demo" loading="lazy"></iframe>}
+    {post.data.demo && <iframe class="demo" scrolling="no" src={`${base}/demos/${post.data.demo}?v=${Date.now()}`} title="Interactive demo" loading="lazy"></iframe>}
   </article>
   <script>
     const f = document.querySelector('iframe.demo');
