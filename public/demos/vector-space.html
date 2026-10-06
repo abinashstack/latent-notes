@@ -67,7 +67,7 @@ button.btn { font: inherit; font-size: .82rem; color: var(--fg); background: var
 /* Blend into the blog: same palette, no page chrome, no duplicate title. */
 :root{--bg:#faf9f5;--fg:#141413;--muted:#6b6a63;--line:#e6e3d8;--surface:#ffffff}
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#262624;--fg:#f0eee6;--muted:#a3a197;--line:#3a3935;--surface:#30302e}}
-body{background:transparent!important;padding-block:0 24px!important;padding-inline:0!important}
+body{background:transparent!important;padding-block:0 24px!important;padding-inline:clamp(16px,4vw,48px)!important}
 main{max-width:none!important}
 main>h1,main>.lede{display:none}
 </style>
